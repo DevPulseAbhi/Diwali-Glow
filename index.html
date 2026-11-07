@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090d26">
+    <meta name="description" content="A little light, a lot of love. An interactive Diwali celebration.">
+    <title>A Little Light, A Lot of Love | Diwali</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="fireworksCanvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="petal-field" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+        <a class="brand" href="#home" aria-label="Go to the top of the Diwali celebration">
+            <span class="brand-mark"><span></span></span>
+            <span>दीपावली <b>/</b> <em>Deepavali</em></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#light">Light</a>
+            <a href="#rangoli">Create</a>
+            <a href="#letter">Letter</a>
+            <a href="#wish">Wish</a>
+        </nav>
+        <div class="header-tools">
+            <button class="icon-button" id="musicToggle" type="button" aria-label="Enable ambient sound"
+                aria-pressed="false" title="Ambient sound">
+                <span class="sound-off-icon">⌁</span><span class="sound-on-icon">◖</span>
+            </button>
+            <a class="header-cta" href="#light">Enter the light <span aria-hidden="true">↘</span></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-ornament ornament-left" aria-hidden="true">✦</div>
+            <div class="hero-ornament ornament-right" aria-hidden="true">✦</div>
+            <div class="lantern lantern-one" aria-hidden="true"><i></i></div>
+            <div class="lantern lantern-two" aria-hidden="true"><i></i></div>
+            <div class="hero-copy reveal">
+                <p class="eyebrow"><span></span> An evening of light <span></span></p>
+                <h1>A Little Light,<br><em>A Lot of Love.</em></h1>
+                <p class="hero-subtitle">May your home shine brighter, your heart feel lighter, and your life be filled
+                    with endless happiness.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#light">Celebrate Diwali <span
+                            aria-hidden="true">→</span></a>
+                    <button class="text-button" type="button" data-fireworks>Begin with fireworks <span
+                            aria-hidden="true">↗</span></button>
+                </div>
+            </div>
+            <div class="hero-diya diya-hero" aria-hidden="true"><span class="flame"></span><span
+                    class="wick"></span><span class="bowl"></span></div>
+            <div class="hero-diya diya-hero hero-diya-right" aria-hidden="true"><span class="flame"></span><span
+                    class="wick"></span><span class="bowl"></span></div>
+            <div class="hero-bottom-line" aria-hidden="true"><span></span><i>शुभ दीपावली</i><span></span></div>
+            <div class="scroll-hint" aria-hidden="true"><span></span> Scroll to wander</div>
+        </section>
+
+        <section class="section light-section" id="light">
+            <div class="section-intro reveal">
+                <p class="eyebrow"><span></span> The ritual of light</p>
+                <h2>Light one.<br><em>Share the glow.</em></h2>
+                <p class="intro-copy">There is a quiet magic in a single flame. Tap a diya to kindle it, then watch a
+                    small constellation gather around you.</p>
+                <button class="button button-outline" id="lightAll" type="button">Light all diyas <span
+                        aria-hidden="true">✦</span></button>
+            </div>
+            <div class="diya-stage reveal" aria-label="Interactive collection of diyas" role="group">
+                <div class="stage-label">Tap to illuminate <span>✦</span></div>
+                <div class="diya-grid" id="diyaGrid"></div>
+                <p class="stage-message">Every little light makes the world a little brighter.</p>
+            </div>
+        </section>
+
+        <section class="section night-section" id="fireworks">
+            <div class="section-intro centered reveal">
+                <p class="eyebrow"><span></span> Make a little noise <span></span></p>
+                <h2>The sky remembers<br><em>how to celebrate.</em></h2>
+                <p class="intro-copy">A night made for wishes, wonder, and that moment when the dark blooms into colour.
+                </p>
+                <div class="firework-actions">
+                    <button class="button button-primary" type="button" data-fireworks>Celebrate with fireworks <span
+                            aria-hidden="true">↗</span></button>
+                    <button class="sound-control" id="soundToggle" type="button" aria-pressed="false"><span
+                            class="sound-dot"></span> Sound off</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section create-section" id="rangoli">
+            <div class="create-copy reveal">
+                <p class="eyebrow"><span></span> Make your mark</p>
+                <h2>A little colour<br><em>at your doorstep.</em></h2>
+                <p class="intro-copy">Rangoli is an invitation: pause, play, and make something beautiful with your own
+                    hands.</p>
+                <div class="palette" role="group" aria-label="Rangoli colours">
+                    <button class="swatch active" type="button" data-color="#f9b233" style="--swatch:#f9b233"
+                        aria-label="Amber" aria-pressed="true"></button>
+                    <button class="swatch" type="button" data-color="#e65c4f" style="--swatch:#e65c4f"
+                        aria-label="Coral" aria-pressed="false"></button>
+                    <button class="swatch" type="button" data-color="#70b6a1" style="--swatch:#70b6a1" aria-label="Jade"
+                        aria-pressed="false"></button>
+                    <button class="swatch" type="button" data-color="#f4dfb2" style="--swatch:#f4dfb2"
+                        aria-label="Ivory" aria-pressed="false"></button>
+                    <button class="swatch" type="button" data-color="#b483c7" style="--swatch:#b483c7" aria-label="Plum"
+                        aria-pressed="false"></button>
+                </div>
+                <div class="rangoli-tools" role="group" aria-label="Rangoli drawing tools">
+                    <button class="rangoli-tool active" type="button" data-tool="flower" aria-pressed="true"><span>✿</span> Flowers</button>
+                    <button class="rangoli-tool" type="button" data-tool="petal" aria-pressed="false"><span>❈</span> Petals</button>
+                    <button class="rangoli-tool" type="button" data-tool="diya" aria-pressed="false"><span>◒</span> Diyas</button>
+                </div>
+                <div class="create-actions"><button class="button button-outline" id="resetRangoli" type="button">Reset
+                        rangoli <span aria-hidden="true">↺</span></button><span class="hint">Pick a colour, then paint the dots</span></div>
+            </div>
+            <div class="rangoli-wrap reveal"><canvas id="rangoliCanvas" width="560" height="560"
+                    aria-label="Interactive rangoli canvas"></canvas>
+                <div class="rangoli-caption">made with a little patience &amp; joy</div>
+            </div>
+        </section>
+
+        <section class="section details-section">
+            <div class="details-heading reveal">
+                <p class="eyebrow"><span></span> Details of the evening</p>
+                <h2>Come in, stay<br><em>for a sweet.</em></h2>
+            </div>
+            <div class="decoration-strip reveal" aria-hidden="true">
+                <div class="toran">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="bells"><i>◡</i><i>◡</i><i>◡</i></div>
+            </div>
+            <div class="sweet-layout">
+                <div class="sweets-copy reveal">
+                    <p class="eyebrow"><span></span> A shared plate</p>
+                    <p>Because no celebration is complete without something sweet to pass around.</p><span
+                        class="script-note">take two, they're auspicious</span>
+                </div>
+                <div class="sweet-platter reveal" aria-label="Festive platter of Indian sweets">
+                    <div class="plate">
+                        <div class="sweet ladoo">●</div>
+                        <div class="sweet kaju">◆</div>
+                        <div class="sweet barfi">◇</div>
+                        <div class="sweet ladoo second">●</div>
+                        <div class="sweet kaju second">◆</div>
+                    </div>
+                    <span class="platter-label">ladoo&nbsp;&nbsp; kaju katli&nbsp;&nbsp; barfi</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section letter-section" id="letter">
+            <div class="letter-intro reveal">
+                <p class="eyebrow"><span></span> A note for you</p>
+                <h2>Some wishes<br>are better <em>by hand.</em></h2>
+                <p class="intro-copy">A small letter, tucked away for the person who made it here.</p>
+            </div>
+            <div class="letter-workspace reveal">
+                <button class="envelope" id="envelope" type="button" aria-label="Open your Diwali letter"
+                    aria-expanded="false">
+                    <span class="envelope-back"></span><span class="envelope-paper"></span><span
+                        class="envelope-flap"></span><span class="wax-seal">ॐ</span><span class="open-label">Open me
+                        <b>↗</b></span>
+                </button>
+                <article class="letter-paper" id="letterPaper" aria-hidden="true">
+                    <button class="close-letter" id="closeLetter" type="button" aria-label="Close letter">×</button>
+                    <p>Happy Diwali,</p>
+                    <p>I hope this Diwali brings a little extra light into your life.</p>
+                    <p>May the worries you've been carrying slowly fade away, may the people you love always stay close,
+                        and may you find countless reasons to smile in the days ahead.</p>
+                    <p>I hope your home is filled with laughter, your heart with peace, and your journey with beautiful
+                        new beginnings.</p>
+                    <p>And if life has been a little difficult lately, I hope this festival reminds you that even the
+                        smallest light can brighten the darkest night.</p>
+                    <p>Take care of yourself, enjoy the sweets, spend time with your favourite people, and never forget
+                        that you deserve all the happiness coming your way.</p>
+                    <p>Wishing you and your family a very Happy Diwali!</p>
+                    <p>With warmth and lots of good wishes,<br><strong>Abhinav Deshwal<span
+                                aria-label="love">♥</span></strong></p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section wish-section" id="wish">
+            <div class="wish-layout">
+                <div class="wish-copy reveal">
+                    <p class="eyebrow"><span></span> Pass it on</p>
+                    <h2>A wish with<br><em>your name on it.</em></h2>
+                    <p class="intro-copy">A little sparkle travels further when it has someone special attached.</p>
+                    <label class="name-field">Your name<input id="nameInput" type="text" placeholder="Type your name"
+                            maxlength="32" autocomplete="name"></label><button class="button button-primary"
+                        id="generateWish" type="button">Create my wish <span aria-hidden="true">↗</span></button>
+                </div>
+                <div class="wish-card-wrap reveal">
+                    <div class="wish-card" id="wishCard">
+                        <div class="card-corner corner-one">✦</div>
+                        <div class="card-corner corner-two">✦</div>
+                        <p class="card-kicker">A little light for</p>
+                        <h3 id="wishName">Someone wonderful</h3>
+                        <div class="card-diya"><span></span></div>
+                        <p id="wishText">May your life sparkle with happiness, prosperity and endless possibilities.</p>
+                        <div class="card-footer">शुभ दीपावली <span>2026</span></div>
+                    </div>
+                    <div class="share-actions"><button class="small-button" id="copyWish" type="button">Copy wish
+                            <span>▣</span></button><button class="small-button" id="shareWish" type="button">Share
+                            <span>↗</span></button><span class="toast" id="toast" role="status"
+                            aria-live="polite"></span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-section" id="finale">
+            <div class="final-firefly firefly-one"></div>
+            <div class="final-firefly firefly-two"></div>
+            <div class="final-firefly firefly-three"></div>
+            <p class="final-firecracker" aria-label="Happy Diwali firecracker">✦ Happy Diwali ✦</p>
+            <p class="eyebrow"><span></span> Until we gather again <span></span></p>
+            <h2>Let the Light<br><em>Stay With You.</em></h2>
+            <p>May this Diwali be the beginning of something beautiful.</p>
+            <div class="final-diyas" aria-hidden="true">
+                <div class="final-diya"><i></i></div>
+                <div class="final-diya"><i></i></div>
+                <div class="final-diya"><i></i></div>
+                <div class="final-diya"><i></i></div>
+                <div class="final-diya"><i></i></div>
+            </div><button class="button button-primary" id="celebrateAgain" type="button">Celebrate again <span
+                    aria-hidden="true">↗</span></button><a class="back-top" href="#top">Back to the beginning ↑</a>
+                <p class="ownership-credit">Made by Abhinav Deshwal <span>with love ✦</span></p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
