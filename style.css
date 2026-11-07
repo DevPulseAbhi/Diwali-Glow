@@ -946,7 +946,7 @@ h2 em {
 
 .letter-workspace {
     position: relative;
-    min-height: 470px;
+    min-height: 720px;
     display: grid;
     place-items: center;
 }
@@ -1086,8 +1086,9 @@ h2 em {
     pointer-events: none;
     transition: .7s cubic-bezier(.2, .8, .2, 1);
     font: 20px/1.26 var(--script);
-    max-height: 80vh;
-    overflow: auto;
+    min-height: 650px;
+    max-height: none;
+    overflow: visible;
 }
 
 .letter-paper:before {
@@ -1575,7 +1576,7 @@ h2 em {
     }
 
     .letter-workspace {
-        min-height: 430px;
+        min-height: 790px;
     }
 
     .envelope {
@@ -1584,7 +1585,9 @@ h2 em {
 
     .letter-paper {
         width: min(500px, calc(100vw - 28px));
-        max-height: 76svh;
+        min-height: 700px;
+        max-height: none;
+        overflow: visible;
         padding: 38px 25px;
         font-size: 17px;
     }
